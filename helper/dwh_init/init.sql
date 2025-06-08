@@ -9,19 +9,29 @@ CREATE TABLE dim_product (
     width_cm INT
 );
 
+--Changes add valid_from, valid_to, is_current
 CREATE TABLE dim_customer (
-    customer_id VARCHAR PRIMARY KEY,
-    zip_code_prefix INT,
-    city VARCHAR,
-    state VARCHAR
+  customer_id VARCHAR PRIMARY KEY,
+  customer_unique_id VARCHAR,
+  zip_code_prefix VARCHAR,
+  city VARCHAR,
+  state VARCHAR,
+  valid_from TIMESTAMP,
+  valid_to TIMESTAMP,
+  is_current BOOLEAN
 );
 
-CREATE TABLE dim_seller (
-    seller_id VARCHAR PRIMARY KEY,
-    zip_code_prefix INT,
-    city VARCHAR,
-    state VARCHAR
+--Changes add valid_from, valid_to, is_current
+CREATE TABLE dwh.dim_seller (
+  seller_id VARCHAR PRIMARY KEY,
+  zip_code_prefix VARCHAR,
+  city VARCHAR,
+  state VARCHAR,
+  valid_from TIMESTAMP,
+  valid_to TIMESTAMP,
+  is_current BOOLEAN
 );
+
 
 CREATE TABLE dim_order_date (
     date_id DATE PRIMARY KEY,
